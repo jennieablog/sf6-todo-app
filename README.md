@@ -10,6 +10,30 @@ This app was built using Symfony 6.4 and PHP 8.1. The Symfony 6.4 project is set
 - Browser with enabled JavaScript
 - Internet connection
 
+## Functionality
+1. View Todo List:
+   - Navigate to / to view a list of all Todo items.
+   - In the list page, Todo items can be completed and deleted without redirecting to another page.
+   - Links for viewing and updating a Todo item are also available through the icons on the right-most side of each item.
+2. Create a Todo:
+   - Navigate to /todos/new to create a new Todo item.
+   - Fill out the form and submit to add a new Todo.
+3. Show a Todo:
+   - To navigate to a Todo item's details page, click the first icon (eye) on the right-most side of the item, or navigate to /todos/{id} where {id} is the actual Todo ID.
+   - The details page shall show the title, completed status, and description of the Todo item.
+   - From this page, completing and restoring incomplete status is also possible without redirecting to another page.
+   - Buttons for editing and deleting the Todo item are also available in this page.
+4. Update a Todo:
+   - To navigate to a Todo item's edit page, click the second icon (pen) on the right-most side of the item, or navigate to /todos/{id}?isEditing=1 where {id} is the actual Todo ID.
+   - The edit page shall have a form to allow updating of the title and description of the Todo item.
+5. Complete a Todo:
+   - To complete a Todo, just toggle the checkbox of the Todo item in the listing page.
+   - It is also possible to delete a Todo by clicking the Complete button in the details page (see item 3).
+5. Delete a Todo:
+   - To delete a Todo, click the third icon (trash) on the right-most side of the item.
+   - It is also possible to delete a Todo by clicking the Delete button in the details page (see item 3).
+  
+
 ## Project Setup
 1. Clone the project repository.
    ```bash
