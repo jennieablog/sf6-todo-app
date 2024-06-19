@@ -43,7 +43,7 @@ This app was built using Symfony 6.4, PHP 8.1, HTML, and JavaScript. The Symfony
 ## Project Setup
 1. Clone the project repository.
    ```bash
-   git clone https://github.com/jennieablog/sf6-todo-app.git .
+   git clone https://github.com/jennieablog/sf6-todo-app.git
    ```
 2. Navigate to the project directory.
    ```bash
