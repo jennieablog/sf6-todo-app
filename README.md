@@ -1,9 +1,9 @@
 # Symfony 6.4 Todo App
 
-## About
+## Overview
 Todo App is a basic To-Do List application where users can create, view, update, and delete tasks through a web interface.
 
-This app was built using Symfony 6.4 and PHP 8.1. The Symfony 6.4 project is set up to run within a Docker environment, utilizing Docker Compose for managing multiple services. Docker containers are used to isolate the Symfony application, database (MySQL), and phpMyAdmin, a database administration tool.
+This app was built using Symfony 6.4, PHP 8.1, HTML, and JavaScript. The Symfony 6.4 project is set up to run within a Docker environment, utilizing Docker Compose for managing multiple services. Docker containers are used to isolate the Symfony application, database (MySQL), and phpMyAdmin, a database administration tool.
 
 ## Requirements
 - Docker
@@ -32,7 +32,6 @@ This app was built using Symfony 6.4 and PHP 8.1. The Symfony 6.4 project is set
 5. Delete a Todo:
    - To delete a Todo, click the third icon (trash) on the right-most side of the item.
    - It is also possible to delete a Todo by clicking the Delete button in the details page (see item 3).
-  
 
 ## Project Setup
 1. Clone the project repository.
@@ -79,3 +78,4 @@ The above test script runs the following in order:
      - Users should be able to view a list of all tasks.
      - Users should be able to edit an existing task.
      - Users should be able to delete a task.
+To check and manage the databases for this project, the `phpMyAdmin` web interface may be accessed at `localhost:8080`. The server is `db`, `username` is `root`, and there is no password.
