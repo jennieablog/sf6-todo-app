@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+{% block title %}Page not found{% endblock %}
+{% block body %}
+
+<div class="mt-5 flex">
+    <p class="
+        flex-auto w-64 p-2 text-black text-2xl focus:outline-none
+        "
+    >Page not found</p>
+        <a  href="{{ path('todo_home')}}"
+            id="back-button"
+            class="rounded-lg bg-gray-400 hover:bg-gray-500 py-3 px-5 text-base font-semibold text-white outline-none"
+        ><i class="fas fa-home"></i> Home</a>
+    </form>        
+</div>
+
+<div class="mt-8">
+    <p class="p-2">The requested page couldn't be located. Checkout for any URL misspelling or return to the homepage.</p>
+</div>
+{% endblock %}

@@ -1,0 +1,78 @@
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/.phpunit.result.cache
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+###> friendsofphp/php-cs-fixer ###
+/.php-cs-fixer.php
+/.php-cs-fixer.cache
+###< friendsofphp/php-cs-fixer ###
+
+# Symfony 6.4 specific
+/public/bundles/
+/public/build/
+/public/uploads/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Composer
+/composer.phar
+/vendor/
+
+# IDE files
+/.phpstorm.meta.php
+/.idea/
+
+# Logs and caches
+/var/log/
+/var/cache/
+/var/sessions/
+
+# Environment
+/.env
+
+# Testing
+/phpunit.xml
+/phpunit-bridge.xml
+/phpunit.php
+
+# User specific
+/composer.lock
+/*.sqlite
+
+# Ignore Symfony's IDE project configuration
+/.phpstorm.meta.php
+/.phpstorm.meta.php.tmp
+
+# Ignore PHPStorm and VSCode configuration folders
+/.idea
+/.vscode
+
+# Ignore Symfony Encore file
+/webpack.config.js
+
+# Symfony Messenger directory
+/messenger
+
+# Symfony PHPStan directory
+/.phpstan
+
+# Symfony Webpack directory
+/public/build
+
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###
+
+###> symfony/phpunit-bridge ###
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###

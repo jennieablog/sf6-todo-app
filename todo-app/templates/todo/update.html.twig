@@ -1,0 +1,66 @@
+{% extends "base.html.twig" %}
+{% block title %}Edit todo{% endblock %}
+{% block body %}
+
+<div class="mt-5 flex">
+	<p class="
+				flex-auto w-64 p-2 text-black text-2xl focus:outline-none
+				">Edit todo</p>
+	<a href="{{ path('todo_home')}}" id="back-button"
+		class="rounded-lg bg-blue-500 hover:bg-blue-600 py-3 px-5 text-base font-semibold text-white outline-none"><i
+			class="fas fa-home"></i> Home</a>
+	</form>
+</div>
+
+<div class="mt-8">
+	<ul id="errors" class="p-2 text-red-500"></ul>
+	<form class="p-2" name="update-form" method="POST" id="edit-todo-form" data-id="{{ todo.id }}">
+		<div class="mb-5">
+			<input type="text" name="title" id="title" value="{{ todo.title }}" placeholder="Title"
+				class="w-full rounded-md bg-white py-3 px-6 text-base font-medium text-gray-500 outline-none focus:border-[#6A64F1] focus:shadow-md" />
+		</div>
+		<div class="mb-5">
+			<textarea rows="4" name="description" placeholder="Description" id="description"
+				class="w-full resize-none rounded-md bg-white py-3 px-6 text-base font-medium text-gray-500 outline-none focus:border-[#6A64F1] focus:shadow-md">{{ todo.description }}</textarea>
+		</div>
+		<div>
+			<button onclick="window.history.back()"
+				class="rounded-md bg-gray-400 hover:bg-gray-500 py-2 px-4 text-sm font-semibold text-white outline-none">Cancel</button>
+			<button
+				class="rounded-md bg-green-500 hover:bg-green-600 py-2 px-4 text-sm font-semibold text-white outline-none"
+				type="submit">Save Changes</button>
+		</div>
+	</form>
+</div>
+
+<script>
+	$('#edit-todo-form').submit(function (event) {
+		event.preventDefault();
+
+		let todoId = $(this).data('id');
+		let todoTitle = $("input[name*='title']").val();
+		let todoDescription = $("textarea[name*='description']").val();
+
+		$.ajax({
+			url: '/todos/' + todoId,
+			type: 'PUT',
+			contentType: 'application/json',
+			data: JSON.stringify({
+				title: todoTitle,
+				description: todoDescription,
+			}),
+			success: function (data) {
+				window.location.href = `/todos/${todoId}`;
+			},
+			error: function (error) {
+				$('#errors').empty();
+				let response = JSON.parse(error.responseText);
+				response.errors.forEach(error => {
+					let listItem = $(`<li>${error}</li>`);
+					$('#errors').append(listItem);
+				});
+			}
+		});
+	});
+</script>
+{% endblock %}

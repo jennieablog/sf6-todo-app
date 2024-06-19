@@ -1,0 +1,86 @@
+{% extends "base.html.twig" %}
+{% block title %}View todo{% endblock %}
+{% block body %}
+
+<div class="mt-5 flex">
+	<h1 class="
+		flex-auto w-64 p-2 text-black text-2xl focus:outline-none
+		">View todo</h1>
+	<a href="{{ path('todo_home')}}" id="back-button"
+		class="rounded-lg bg-blue-500 hover:bg-blue-600 py-3 px-5 text-base font-semibold text-white outline-none"><i
+			class="fas fa-home"></i> Home</a>
+	</form>
+</div>
+
+<div class="mt-8">
+	<div class="mb-5">
+		<p class="p-2 text-xl {% if todo.isCompleted %}line-through{% endif %}">{{ todo.title }}</p>
+		<hr>
+	</div>
+	<div class="mb-5">
+		<p class="p-2 text-gray-500">{{ todo.description }}</p>
+	</div>
+	<div class="mt-8">
+		<button onclick="location.href='/todos/{{ todo.id }}?isEditing=1'"
+			class="rounded-md bg-gray-400 hover:bg-gray-500 py-2 px-4 text-xs font-semibold text-white outline-none">
+			<i class="fas fa-edit"></i> Edit
+		</button>
+		{% if todo.isCompleted %}
+		<button data-completed="0"
+			class="complete-button rounded-md bg-indigo-400 hover:bg-indigo-500 py-2 px-4 text-xs font-semibold text-white outline-none">
+			<i class="fas fa-undo"></i> Restore
+		</button>
+		{% else %}
+		<button data-completed="1"
+			class="complete-button rounded-md bg-green-500 hover:bg-green-600 py-2 px-4 text-xs font-semibold text-white outline-none">
+			<i class="fas fa-check"></i> Complete
+		</button>
+		{% endif %}
+		<button
+			class="delete-button rounded-md bg-red-500 hover:bg-red-600 py-2 px-4 text-xs font-semibold text-white outline-none">
+			<i class="fas fa-trash"></i> Delete
+		</button>
+	</div>
+
+</div>
+
+<script>
+	// Function to complete a todo
+	$(".complete-button").on("click", function () {
+		let todoId = $(this).data('id');
+		let isCompleted = $(this).data('completed');
+
+		$.ajax({
+			url: '/todos/{{todo.id}}/complete',
+			type: 'PUT',
+			contentType: 'application/json',
+			data: JSON.stringify({ completed: isCompleted }),
+			success: function (response) {
+				window.location.href = `/todos/{{todo.id}}`;
+			},
+			error: function (error) {
+				alert(error.message);
+			}
+		});
+	});
+
+	// Function to delete a todo
+	$(".delete-button").on("click", function () {
+		let confirm = window.confirm(`Are you sure you want to delete "{{todo.title}}" ?`);
+
+		if (confirm) {
+			$.ajax({
+				url: '/todos/{{todo.id}}/delete',
+				type: 'DELETE',
+				success: function (todo) {
+					window.location.href = '/';
+				},
+				error: function (error) {
+					alert('Todo failed to delete. Please refresh the page.');
+				}
+			});
+		}
+	});
+
+</script>
+{% endblock %}
