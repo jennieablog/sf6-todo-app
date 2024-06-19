@@ -15,23 +15,35 @@ This app was built using Symfony 6.4, PHP 8.1, HTML, and JavaScript. The Symfony
    - Navigate to / to view a list of all Todo items.
    - In the list page, Todo items can be completed and deleted without redirecting to another page.
    - Links for viewing and updating a Todo item are also available through the icons on the right-most side of each item.
+   
+   ![View todo list]([https://github.com/jennieablog/sf6-todo-app/blob/main/screenshots/listing.png])
 2. Create a Todo:
    - Navigate to /todos/new to create a new Todo item.
    - Fill out the form and submit to add a new Todo.
+  
+   ![Create a todo]([https://github.com/jennieablog/sf6-todo-app/blob/main/screenshots/new.png])
 3. Show a Todo:
    - To navigate to a Todo item's details page, click the first icon (eye) on the right-most side of the item, or navigate to /todos/{id} where {id} is the actual Todo ID.
    - The details page shall show the title, completed status, and description of the Todo item.
    - From this page, completing and restoring incomplete status is also possible without redirecting to another page.
-   - Buttons for editing and deleting the Todo item are also available in this page.
+   - Buttons for editing and deleting the Todo item are also available on this page.
+  
+   ![Show a todo]([https://github.com/jennieablog/sf6-todo-app/blob/main/screenshots/view.png])
 4. Update a Todo:
    - To navigate to a Todo item's edit page, click the second icon (pen) on the right-most side of the item, or navigate to /todos/{id}?isEditing=1 where {id} is the actual Todo ID.
    - The edit page shall have a form to allow updating of the title and description of the Todo item.
+  
+   ![Update a todo]([https://github.com/jennieablog/sf6-todo-app/blob/main/screenshots/edit.png])
 5. Complete a Todo:
-   - To complete a Todo, just toggle the checkbox of the Todo item in the listing page.
-   - It is also possible to delete a Todo by clicking the Complete button in the details page (see item 3).
+   - To complete a Todo, just toggle the checkbox of the Todo item on the listing page.
+   - It is also possible to delete a Todo by clicking the Complete button on the details page (see item 3).
+     
+   ![Complete a todo]([https://github.com/jennieablog/sf6-todo-app/blob/main/screenshots/view.png])
 5. Delete a Todo:
    - To delete a Todo, click the third icon (trash) on the right-most side of the item.
-   - It is also possible to delete a Todo by clicking the Delete button in the details page (see item 3).
+   - It is also possible to delete a Todo by clicking the Delete button on the details page (see item 3).
+  
+   ![Delete a todo]([https://github.com/jennieablog/sf6-todo-app/blob/main/screenshots/delete.png])
 
 ## Project Setup
 1. Clone the project repository.
