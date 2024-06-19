@@ -47,7 +47,7 @@ This app was built using Symfony 6.4, PHP 8.1, HTML, and JavaScript. The Symfony
    ```
 2. Navigate to the project directory.
    ```bash
-   cd todo-app/
+   cd sf6-todo-app/
    ```
 3. Run the following command to build the Docker images and start containers for services defined in the docker-compose.yml file.
    ```bash
