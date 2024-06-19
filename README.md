@@ -3,7 +3,7 @@
 ## Overview
 Todo App is a basic To-Do List application where users can create, view, update, and delete tasks through a web interface.
 
-This app was built using Symfony 6.4, PHP 8.1, HTML, and JavaScript. The Symfony 6.4 project is set up to run within a Docker environment, utilizing Docker Compose for managing multiple services. Docker containers are used to isolate the Symfony application, database (MySQL), and phpMyAdmin, a database administration tool.
+This app was built using Symfony 6.4, PHP 8.1, HTML, Tawilwind CSS, AJAX, and JavaScript. The Symfony 6.4 project is set up to run within a Docker environment, utilizing Docker Compose for managing multiple services. Docker containers are used to isolate the Symfony application, database (MySQL), and phpMyAdmin, a database administration tool.
 
 ## Requirements
 - Docker 26.1
