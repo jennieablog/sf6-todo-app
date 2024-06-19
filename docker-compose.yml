@@ -1,0 +1,44 @@
+# This Docker Compose file sets up three services (db, phpmyadmin, www), connects them to a common network (dev), and defines volumes to persist MySQL data and web server configurations.
+# It also exposes ports to allow access to PhpMyAdmin and the web server from the host machine.
+
+services:
+  db:
+    image: mysql
+    container_name: todo-app_mysql
+    restart: always # Ensures the container restarts if it stops unexpectedly.
+    volumes:
+      - db-data:/var/lib/mysql # Mounts a named volume db-data to persist MySQL data in /var/lib/mysql.
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    networks:
+      - dev
+
+  phpmyadmin:
+      image: phpmyadmin
+      container_name: todo-app_phpmyadmin
+      restart: always # Ensures the container restarts if it stops unexpectedly.
+      depends_on:
+        - db # Specifies that this service depends on db, meaning the db service will be started first.
+      ports:
+        - 8080:80
+      environment:
+        - PMA_ARBITRARY=1 # Sets an environment variable PMA_ARBITRARY=1 to allow arbitrary server selection in PhpMyAdmin.
+      networks:
+        - dev
+
+# created service www
+  www:
+    build: php # Specifies a custom build context for this service, using a Dockerfile located in the php directory to build an image.
+    container_name: todo-app_www
+    ports:
+      - 8741:80
+    volumes:
+      - ./php/vhosts:/etc/apache2//sites-enabled # Mounts the local php/vhosts directory to Apache's sites-enabled directory in the container, allowing configuration of virtual hosts.
+      - ./:/var/www # Mounts the current directory on the host to /var/www in the container, allowing the container to serve content from the host filesystem.
+    networks:
+      - dev
+
+networks:
+  dev:
+volumes:
+  db-data:
