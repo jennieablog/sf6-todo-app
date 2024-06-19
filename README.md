@@ -78,4 +78,5 @@ The above test script runs the following in order:
      - Users should be able to view a list of all tasks.
      - Users should be able to edit an existing task.
      - Users should be able to delete a task.
+
 To check and manage the databases for this project, the `phpMyAdmin` web interface may be accessed at `localhost:8080`. The server is `db`, `username` is `root`, and there is no password.
